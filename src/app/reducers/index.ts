@@ -3,16 +3,17 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer, Action
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import {routerReducer, RouterState } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 export interface State {
+  router: any;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers = {
+  router: routerReducer
 };
 
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
